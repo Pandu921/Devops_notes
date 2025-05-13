@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# System Log Analyzer
+# Description: Scans logs and extracts error/warning lines, sends report via email
+# Author: Pandu
+
+# -------------------------------
+# Check Arguments
+# -------------------------------
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 <log_file_path> <keyword>"
+  exit 1
+fi
+
+LOG_FILE=$1
+KEYWORD=$2
+
+# -------------------------------
+# Validate Log File
+# -------------------------------
+if [ ! -f "$LOG_FILE" ]; then
+  echo "Error: Log file '$LOG_FILE' not found!"
+  exit 2
+fi
+
+# -------------------------------
+# Report Variables
+# -------------------------------
+REPORT_FILE="report.txt"
+EMAIL_TO="chennarpupanduranga@gmail.com"
+EMAIL_SUBJECT="Log Report: '$KEYWORD' Matches in $LOG_FILE"
+
+# Clear old report
+> "$REPORT_FILE"
+
+# -------------------------------
+# Scan Log File
+# -------------------------------
+MATCHES=$(grep -i "$KEYWORD" "$LOG_FILE")
+COUNT=$(echo "$MATCHES" | wc -l)
+
+# -------------------------------
+# Write Report
+# -------------------------------
+echo "Log Report - $(date)" >> "$REPORT_FILE"
+echo "Log File: $LOG_FILE" >> "$REPORT_FILE"
+echo "Keyword: $KEYWORD" >> "$REPORT_FILE"
+echo "Total Matches: $COUNT" >> "$REPORT_FILE"
+echo "----------------------------------------" >> "$REPORT_FILE"
+echo "$MATCHES" >> "$REPORT_FILE"
+
+# -------------------------------
+# Email Report
+# -------------------------------
+if [ "$COUNT" -gt 0 ]; then
+  mail -s "$EMAIL_SUBJECT" "$EMAIL_TO" < "$REPORT_FILE"
+  echo "✅ Report emailed to $EMAIL_TO"
+else
+  echo "ℹ️ No matches found. No email sent."
+fi
