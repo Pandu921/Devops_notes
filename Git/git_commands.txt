@@ -88,3 +88,60 @@ Use signed commits (git commit -S -m "msg") for traceability
 
 Use git stash for temporary saving during context switching
 
+
+
+
+
+Question and answers:
+
+fetch Vs pull:
+
+You're asking about the difference between git fetch and git pull — a very common and important question for daily Git usage.
+
+🔄 git fetch vs git pull
+
+  Command	Action	                           Merges Changes?   Safe?	Use Case
+git fetch	Downloads updates from remote only	❌ No	✅ Very safe	When you want to review changes before merging
+git pull	Fetches + merges remote into local	✅ Yes	⚠️ Less safe	When you want latest code and are ready to merge
+
+🔍 git fetch
+
+Downloads commits, branches, tags from remote → updates your .git metadata.
+
+It does NOT change your working directory or current branch.
+
+You can inspect what changed before deciding to merge.
+
+git fetch origin
+git diff origin/main      # See what's new before merging
+git merge origin/main     # Merge manually if you want
+
+
+⚡ git pull
+It is basically:
+
+git fetch + git merge
+Automatically fetches and merges the remote changes into your current branch.
+
+
+
+
+git pull origin main
+This updates your local working branch to match the remote.
+
+May cause merge conflicts if your local work and remote changes overlap.
+
+✅ Summary
+Command	Downloads	Merges	When to Use
+git fetch	✅ Yes	❌ No	When you want to review before merging
+git pull	✅ Yes	✅ Yes	When you're ready to update your codebase immediately
+
+🧠 Pro Tip:
+If you're working in a team, it's often safer to:
+
+
+
+
+git fetch
+git log HEAD..origin/main   # See new commits
+git merge origin/main       # Merge when you're ready
