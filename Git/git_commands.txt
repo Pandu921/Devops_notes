@@ -90,8 +90,6 @@ Use git stash for temporary saving during context switching
 
 
 
-
-
 Question and answers:
 
 fetch Vs pull:
