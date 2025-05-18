@@ -48,7 +48,7 @@ git diff --staged                  # Show staged changes
 💡 Undo & Reset
 
 git reset <file>                   # Unstage a file
-git checkout -- <file>             # Discard local changes
+git checkout -- <file>             # Discard local changes and the file must be tracked by git and it works only when file not staged
 git reset --hard                   # Reset everything (careful!)
 git revert <commit-id>             # Revert a specific commit
 
