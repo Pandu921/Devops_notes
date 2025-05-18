@@ -34,6 +34,7 @@ git checkout <branch-name>     # Switch to branch
 git checkout -b <new-branch>   # Create + switch
 git merge <branch>             # Merge into current branch
 git branch -d <branch-name>    # Delete branch
+git push origin --delete feature-xyz  # Delete branch in remote 
 
 
 🔁 Sync with Remote (GitHub)
