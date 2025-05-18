@@ -7,12 +7,14 @@ Here is a comprehensive list of Git and GitHub commands that a DevOps engineer m
 git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 git config --list   # Verify your Git config
+
 📂 Repository Management
 
 
 
 git init                  # Initialize a new Git repo
 git clone <repo-url>     # Clone existing repo (from GitHub, etc.)
+
 📄 Staging & Committing
 
 
@@ -21,6 +23,7 @@ git status               # Check status of files
 git add <file>           # Stage file
 git add .                # Stage all changes
 git commit -m "message"  # Commit staged changes
+
 🔄 Branching
 
 
@@ -31,6 +34,8 @@ git checkout <branch-name>     # Switch to branch
 git checkout -b <new-branch>   # Create + switch
 git merge <branch>             # Merge into current branch
 git branch -d <branch-name>    # Delete branch
+
+
 🔁 Sync with Remote (GitHub)
 
 
@@ -41,6 +46,8 @@ git push -u origin <branch>        # Push branch and set upstream
 git push                           # Push latest changes
 git pull                           # Fetch + merge changes from remote
 git fetch                          # Fetch changes only (no merge)
+
+
 🔍 Log and History
 
 
@@ -50,6 +57,7 @@ git log --oneline --graph --all    # Pretty log
 git show <commit-id>               # Show details of a commit
 git diff                           # Show unstaged changes
 git diff --staged                  # Show staged changes
+
 💡 Undo & Reset
 
 
@@ -58,6 +66,8 @@ git reset <file>                   # Unstage a file
 git checkout -- <file>             # Discard local changes
 git reset --hard                   # Reset everything (careful!)
 git revert <commit-id>             # Revert a specific commit
+
+
 📌 Tagging Releases
 
 
@@ -65,6 +75,8 @@ git revert <commit-id>             # Revert a specific commit
 git tag v1.0.0                        # Create tag
 git tag -a v1.0.0 -m "Release tag"    # Annotated tag
 git push origin v1.0.0                # Push tag
+
+
 🤝 GitHub Collaboration
 
 
@@ -75,6 +87,9 @@ git fetch upstream                       # Fetch changes
 git merge upstream/main                  # Merge into your branch
 
 # Create Pull Request (PR) via GitHub UI
+
+
+
 📋 Git Ignore
 .gitignore – Add files/folders to ignore in Git
 
@@ -85,6 +100,8 @@ git merge upstream/main                  # Merge into your branch
 *.log
 node_modules/
 .env
+
+
 🛠️ DevOps-specific Tips
 Automate version bumps using git tag
 
