@@ -124,8 +124,6 @@ git fetch + git merge
 Automatically fetches and merges the remote changes into your current branch.
 
 
-
-
 git pull origin main
 This updates your local working branch to match the remote.
 
@@ -138,8 +136,6 @@ git pull	✅ Yes	✅ Yes	When you're ready to update your codebase immediately
 
 🧠 Pro Tip:
 If you're working in a team, it's often safer to:
-
-
 
 
 git fetch
