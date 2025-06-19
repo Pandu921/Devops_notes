@@ -8,7 +8,7 @@ Commonly used for configuration files (Ansible, Kubernetes, Docker Compose, etc.
 ✅ 2. Basic YAML Syntax
 Key-Value Pairs:
 
-yaml
+
 
 
 name: John
